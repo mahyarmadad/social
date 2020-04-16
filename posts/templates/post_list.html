@@ -1,4 +1,4 @@
-{% extends "posts/post_base.html" %}
+{% extends "post_base.html" %}
 
 {% block pre_post_content %}
 <div class="col-md-4">
@@ -17,7 +17,7 @@
   </div>
 
   {% endif %}
-  
+
   <div class="card card-with-shadow">
     <div class="content">
       <h5 class="title">All Groups</h5>
@@ -39,7 +39,7 @@
 {% block post_content %}
 <div class="col-md-8">
   {% for post in post_list %}
-    {% include "posts/_posts.html" %}
+  {% include "_post.html" %}
   {% endfor %}
 </div>
 
