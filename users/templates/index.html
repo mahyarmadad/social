@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %} 
+{% if messages %} 
+  {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} mt-3" role="alert">
+        <button class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+      </div>
+      <br />
+  {% endfor %} 
+{% endif %}
+<div class="container welcome">
+  <h1 class="animated zoomInLeft delay-1/3s">Welcome to Star Social</h1>
+  <br /><br /><br />
+  <p class="animated zoomInLeft delay-1/5s">
+    Lets Communicate and Bulid a Rocket
+    <img src="{% static 'img/smile.png' %}" />
+  </p>
+  <br /><br /><br />
+
+  {% if user.is_authenticated %}
+  <button
+    class="btn btn-outline-light animated zoomInLeft"
+    onclick="location.href='{% url 'login' %}'"
+  >
+    Continue Building
+  </button>
+  {% else %}
+  <button
+    class="btn btn-outline-light animated zoomInLeft"
+    onclick="location.href='{% url 'signup' %}'"
+  >
+    Let's Rocket
+  </button>
+  {% endif %}
+</div>
+
+{% endblock %}
